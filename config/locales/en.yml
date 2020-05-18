@@ -33,6 +33,7 @@ en:
   layouts:
     header:
       name_app: "Imusic"
+      category: "Categories"
     application:
       vietnamese: "Vi"
       english: "En"
@@ -94,3 +95,13 @@ en:
       subject_activate: "Account activation"
       success: "Account activated!"
       fail: "Invalid activation link"
+  categories:
+    create:
+      success: "Category was successfully created."
+      fail: "Cannot create category"
+    update:
+      success: "Category was successfully updated."
+      fail: "Cannot update category"
+    destroy:
+      success: "Category was successfully destroyed."
+      fail: "Category cannot delete"
