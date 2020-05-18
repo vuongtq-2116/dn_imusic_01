@@ -5,15 +5,22 @@
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav navbar-right">
-      <li class="nav-item">
-        <%= link_to t(".profile"), "#" %>
-      </li>
-      <li class="nav-item">
-         <%= link_to t(".profile"), "#" %>
-      </li>
-      <li class="nav-item">
-         <%= link_to t(".profile"), "#" %>
-      </li>
+      <% if logged_in? %>
+        <li class="nav-item">
+          <%= link_to current_user.name, "#" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t(".profile"), "#" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t(".profile"), "#" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t(".logout"), logout_path, method: :delete %>
+        </li>
+      <% else %>
+        <li><%= link_to t(".login"), login_path %></li>
+      <% end %>
     </ul>
   </div>
 </nav>
