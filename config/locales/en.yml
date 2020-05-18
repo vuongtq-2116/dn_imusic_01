@@ -65,6 +65,7 @@ en:
       save_changes: "Save Changes"
     create:
       create_success: "Created user successfully"
+      check_mail_active: "Please check your email to activate your account."
     update:
       update_success: "User updated successfully"
     destroy:
@@ -74,6 +75,8 @@ en:
     user:
       sure: "You sure ?"
       delete: "Delete"
+    show:
+      not_found_user: "Not found user"
   sessions:
     new:
       login: "Log in"
@@ -83,3 +86,11 @@ en:
       signup: "Sign up now"
     create:
       fail_login: "Invalid email/password combination"
+      not_activated: "Account not activated. Check your email for the activation link."
+  user_mailer:
+    account_activation:
+      content: "Hi %{name} Welcome to the Imusic system! Click on the link below to activate your account:"
+      activate: "Activate"
+      subject_activate: "Account activation"
+      success: "Account activated!"
+      fail: "Invalid activation link"
