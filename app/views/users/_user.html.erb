@@ -1,0 +1,6 @@
+<li>
+  <%= link_to user.name, user %> |
+  <%= user.email %> |
+  <%= link_to t(".delete"), user, method: :delete,
+    data: { confirm: t(".sure") } %>
+</li>

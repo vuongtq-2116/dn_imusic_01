@@ -54,9 +54,15 @@ en:
       more_info_btn: "More Info"
       text_ex: "This call to action card is a great place to showcase some important information or display a clever tagline!"
   users:
+    index:
+      all_users: "All users"
+      no_users: "There are not any users available"
     new:
       signup: "Sign up"
       btn_create_acc: "Create my account"
+    edit:
+      content: "Edit information"
+      save_changes: "Save Changes"
     create:
       create_success: "Created user successfully"
     update:
@@ -65,3 +71,6 @@ en:
       deleted: "Deleted user"
       cannot_deleted: "Can not delete this user"
     not_found_user: "Can not found this user"
+    user:
+      sure: "You sure ?"
+      delete: "Delete"

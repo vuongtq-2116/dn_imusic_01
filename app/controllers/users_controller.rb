@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if @user.update_attribute :deletion, Time.now
+    if @user.update_attribute :deleted_at, Time.now
       flash[:success] = t ".deleted"
     else
       flash[:danger] = t ".cannot_deleted"
