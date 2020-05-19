@@ -1,0 +1,20 @@
+$white: #fff;
+
+/* header */
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 30px;
+  color: $white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+#logo:hover {
+  color: $white;
+  text-decoration: none;
+}
+nav{
+  margin-bottom: 30px;
+}
