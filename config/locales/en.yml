@@ -36,6 +36,10 @@ en:
     application:
       vietnamese: "Vi"
       english: "En"
+  shared:
+    error_messages:
+      one: "The form contains 1 error"
+      other: "The form contains %{count} errors"
   static_pages:
     home:
       content_html: "<h1 class='font-weight-light'>Never stop listening</h1>
@@ -49,3 +53,15 @@ en:
         <p class='card-text'>Make use of an assortment of helpful After Effects templates, from infographics, to movie trailers, and so much more.</p>"
       more_info_btn: "More Info"
       text_ex: "This call to action card is a great place to showcase some important information or display a clever tagline!"
+  users:
+    new:
+      signup: "Sign up"
+      btn_create_acc: "Create my account"
+    create:
+      create_success: "Created user successfully"
+    update:
+      update_success: "User updated successfully"
+    destroy:
+      deleted: "Deleted user"
+      cannot_deleted: "Can not delete this user"
+    not_found_user: "Can not found this user"
