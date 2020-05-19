@@ -30,4 +30,22 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  layouts:
+    header:
+      name_app: "Imusic"
+    application:
+      vietnamese: "Vi"
+      english: "En"
+  static_pages:
+    home:
+      content_html: "<h1 class='font-weight-light'>Never stop listening</h1>
+        <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>"
+      signup_now_btn: "Signup now !"
+      card_1_html: "<h2 class='card-title'>Music tracks</h2>
+        <p class='card-text'>Listen through a library of over 900,000 tracks, including everything from cinematic scores to dynamic pop.</p>"
+      card_2_html: "<h2 class='card-title'>Sound effects</h2>
+        <p class='card-text'>Add powerful sonic impact to your next project. Choose from over 1.2 million royalty-free sound effects.</p>"
+      card_3_html: "<h2 class='card-title'>After effects templates</h2>
+        <p class='card-text'>Make use of an assortment of helpful After Effects templates, from infographics, to movie trailers, and so much more.</p>"
+      more_info_btn: "More Info"
+      text_ex: "This call to action card is a great place to showcase some important information or display a clever tagline!"
