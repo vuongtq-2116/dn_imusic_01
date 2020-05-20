@@ -74,3 +74,12 @@ en:
     user:
       sure: "You sure ?"
       delete: "Delete"
+  sessions:
+    new:
+      login: "Log in"
+      email: "Email"
+      password: "Password"
+      new_user: "New user?"
+      signup: "Sign up now"
+    create:
+      fail_login: "Invalid email/password combination"
