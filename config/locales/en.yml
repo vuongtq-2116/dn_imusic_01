@@ -118,6 +118,21 @@ en:
     destroy:
       success: "Category was successfully destroyed."
       fail: "Category cannot delete"
+    not_found_cat: "Not found category"
+  albums:
+    no_album: "There are no any albums to display"
+    create:
+      success: "Album was successfully created."
+      fail: "Cannot create album"
+    new:
+      content: "Create new a album"
+    update:
+      success: "Album was successfully updated."
+      fail: "Cannot update album"
+    destroy:
+      success: "Album was successfully destroyed."
+      fail: "Album cannot delete"
+    not_found_album: "Not found album"
   time:
     formats:
       long: "%H:%M:%S %d-%m-%Y"
