@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, except: %i(new create)
   before_action :load_user, except: %i(index new create)
+  before_action :correct_user, only: %i(edit update)
 
   def index
     @users = User.active.paginate page: params[:page]
@@ -16,8 +18,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      flash[:success] = t ".create_success"
-      redirect_to root_path
+      send_mail_activate @user
     else
       render :new
     end
@@ -53,5 +54,15 @@ class UsersController < ApplicationController
 
     flash[:danger] = t ".not_found_user"
     redirect_to root_path
+  end
+
+  def send_mail_activate user
+    UserMailer.account_activation(user).deliver_now
+    flash[:info] = t ".check_mail_active"
+    redirect_to root_url
+  end
+
+  def correct_user
+    redirect_to root_url unless current_user? @user
   end
 end
