@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
-  before_action :logged_in_user, except: :index
-  before_action :check_admin, except: %i(index new show)
-  before_action :load_category, except: %i(index new)
+  before_action :logged_in_user
+  before_action :check_admin, except: :index
+  before_action :load_category, except: %i(index new create)
 
   def index
     @categories = Category.sort_by_name.paginate page: params[:page]
@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
     @category = Category.new category_params
     if @category.save
       flash[:success] = t ".success"
-      redirect_to @category
+      redirect_to categories_path
     else
       flash.now[:danger] = t ".fail"
       render :new
@@ -29,7 +29,7 @@ class CategoriesController < ApplicationController
   def update
     if @category.update category_params
       flash[:success] = t ".success"
-      redirect_to @categories
+      redirect_to categories_path
     else
       flash.now[:danger] = t ".fail"
       render :edit
@@ -42,7 +42,7 @@ class CategoriesController < ApplicationController
     else
       flash[:danger] = t ".fail"
     end
-    redirect_to @categories
+    redirect_to categories_path
   end
 
   private
@@ -56,6 +56,6 @@ class CategoriesController < ApplicationController
     return if @category
 
     flash[:danger] = t ".not_found_cat"
-    redirect_to root_path
+    redirect_to categories_path
   end
 end

@@ -1,2 +1,4 @@
 user_mailer:
   email: "lileulao3@gmail.com"
+categories:
+  per_page: 10

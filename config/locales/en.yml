@@ -34,6 +34,16 @@ en:
     header:
       name_app: "Imusic"
       category: "Categories"
+      name: "Name"
+      created_h: "Created at"
+      updated_h: "Updated at"
+      delete: "Delete"
+      sure: "You sure ?"
+      not_admin: "You are not admin"
+      require_login: "Please log in."
+      create_btn: "Create"
+      update_btn: "Update"
+      new_btn: "New +"
     application:
       vietnamese: "Vi"
       english: "En"
@@ -96,12 +106,18 @@ en:
       success: "Account activated!"
       fail: "Invalid activation link"
   categories:
+    no_cat: "There are no any categories to display"
     create:
       success: "Category was successfully created."
       fail: "Cannot create category"
+    new:
+      content: "Create new a category"
     update:
       success: "Category was successfully updated."
       fail: "Cannot update category"
     destroy:
       success: "Category was successfully destroyed."
       fail: "Category cannot delete"
+  time:
+    formats:
+      long: "%H:%M:%S %d-%m-%Y"
