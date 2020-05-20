@@ -3,6 +3,6 @@
 <%= will_paginate @users %>
 
 <ul class = "users">
-  <%= render @users || t ".no_users"%>
+  <%= render(@users) || t(".no_users") %>
 </ul>
 <%= will_paginate @users %>
