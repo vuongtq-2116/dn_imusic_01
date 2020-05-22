@@ -1,0 +1,8 @@
+<li class = "field_song">
+  <%= f.label :song_id %>
+  <%= f.select :song_id,
+                  load_all_song,
+                  {include_blank: false},
+                  {class: "js-example-basic-single",style: "width:150px;"} %>
+  <%= link_to t("layouts.header.delete"), "#", class: "btn btn-warning del-field", remote: true %>
+</li>

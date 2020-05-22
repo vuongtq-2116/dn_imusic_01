@@ -1,0 +1,12 @@
+<%= form_for [:admin, album] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+  <ul id = "wrapper">
+    <%= f.fields_for :album_songs do |ff| %>
+      <%= render "album_song_fields", f: ff %>
+    <% end %>
+  </ul>
+  <%= link_to "Add a song", "#", id: "ele", class: "btn btn-info", remote: true %>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
