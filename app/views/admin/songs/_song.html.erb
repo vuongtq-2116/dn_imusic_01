@@ -1,5 +1,5 @@
 <tr>
-  <td><%= link_to song.name, song %></td>
+  <td><%= link_to song.name, admin_song_path(song) %></td>
   <td><%= song.category.name %></td>
   <td><%= l song.created_at, format: :long %></td>
   <td><%= l song.updated_at, format: :long %></td>

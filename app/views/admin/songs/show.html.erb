@@ -50,6 +50,43 @@
           </div>
         </div>
       </tr>
+      <tr>
+        <div class="row">
+          <div class="col">
+            <th><%= t "admin.songs.header.song" %></th>
+            <td>
+              <% if @song.song_file.attached? %>
+                <%= link_to @song.song_file, class: "btn btn-primary", id: "link_down" do %>
+                  <%= t "admin.songs.download_btn" %>
+                <% end %>
+              <% end %>
+            </td>
+          </div>
+          <div class="col">
+            <th><%= t "admin.songs.header.duration" %></th>
+            <td id="length">0</td>
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="row">
+          <div class="col">
+            <th><%= t "admin.songs.header.ctrl_btn" %></th>
+            <td>
+              <button id="play" class = "btn btn-success"><i class="fas fa-play"></i></button>
+              <button id="pause" class = "btn btn-secondary"><i class="fas fa-pause"></i></button>
+              <button id="restart" class = "btn btn-warning"><i class="fas fa-redo-alt"></i></button>
+            </td>
+          </div>
+          <div class="col">
+            <th><%= t "admin.songs.header.playing" %></th>
+            <td id="currentTime">0</td>
+          </div>
+        </div>
+      </tr>
     </tbody>
   </table>
+  <h2><%= t "admin.songs.sound_info" %></h2>
+  <div id="source"><%= t "admin.songs.src_file" %></div>
+  <div id="status" style="color:red;"><%= t "admin.songs.stt_sound" %></div>
 </div>

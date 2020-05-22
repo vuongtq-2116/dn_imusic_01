@@ -52,7 +52,6 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-
   config.action_mailer.default_url_options = { host: "localhost:3000", protocol: "http" }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
@@ -64,7 +63,8 @@ Rails.application.configure do
       authentication: :plain,
       enable_starttls_auto: true
   }
-
+  config.require_master_key = true
+  config.middleware.use I18n::JS::Middleware
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
 

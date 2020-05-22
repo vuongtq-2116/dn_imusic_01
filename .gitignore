@@ -12,3 +12,7 @@ config/environments/*.local.yml
 
 /public/packs/*
 .idea/*
+storage/*
+/config/master.key
+/config/credentials.yml.enc
+!/storage/.keep
