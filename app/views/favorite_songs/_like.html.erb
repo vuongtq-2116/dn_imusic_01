@@ -1,0 +1,6 @@
+<%= form_for [@song, @favorite_song || @song.favorite_songs.build], remote: true do |f| %>
+  <div>  <%= f.hidden_field :song_id, value: @song.id %></div>
+  <%= f.button :submit, class: "btn btn-danger" do %>
+    <i class="fas fa-heart"></i>
+  <% end %>
+<% end %>
