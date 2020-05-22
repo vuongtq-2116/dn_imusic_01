@@ -1,0 +1,9 @@
+<tr>
+  <td><%= link_to category.name, edit_admin_category_path(category) %></td>
+  <td><%= l category.created_at, format: :long %></td>
+  <td><%= l category.updated_at, format: :long %></td>
+  <% if current_user.admin? %>
+    <td><%= link_to t("layouts.header.delete"), admin_category_path(category), method: :delete,
+      data: { confirm: t("layouts.header.sure") } %></td>
+  <% end %>
+</tr>

@@ -1,5 +1,8 @@
 <div class="container">
   <h2><%= t "layouts.header.category" %></h2>
+  <% if current_user.admin? %>
+    <%= link_to t("layouts.header.new_btn"), new_admin_category_path, class: "btn btn-info" %>
+  <% end %>
   <table class="table table-hover">
     <thead>
       <tr>
