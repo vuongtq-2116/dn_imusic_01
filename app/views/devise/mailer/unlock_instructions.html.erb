@@ -1,0 +1,3 @@
+<p><%= t "devise.hello", mail: @resource.email %></p>
+
+<%= t ".content_html", link: (link_to t(".unlock_btn"), unlock_url(@resource, unlock_token: @token))%>

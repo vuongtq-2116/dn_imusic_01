@@ -1,5 +1,4 @@
 class FavoriteSongsController < ApplicationController
-  before_action :logged_in_user
   before_action :load_song, :load_favorite_song, only: %i(create destroy)
 
   def index

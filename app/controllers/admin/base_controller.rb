@@ -1,5 +1,5 @@
 class Admin::BaseController < ApplicationController
-  before_action :logged_in_user
+  before_action :authenticate_user!
   before_action :restrict_user_by_role
 
   def restrict_user_by_role
