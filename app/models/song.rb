@@ -7,8 +7,15 @@ class Song < ApplicationRecord
   has_many :users, through: :comments, dependent: :destroy
   has_many :album_songs, dependent: :destroy
   has_many :albums, through: :album_songs
+
   scope :active, ->{where deleted_at: nil}
-  scope :sort_by_created_at, -> {order created_at: :asc}
+  scope :sort_by_created_at, ->{order created_at: :asc}
+  scope :search, ->(search){joins(:category, album_songs: :album)
+    .where("songs.name ilike ? or songs.artist ilike ? or categories.name ilike ? or albums.name ilike ?",
+    "%#{search}%",
+    "%#{search}%",
+    "%#{search}%",
+    "%#{search}%")}
 
   def blank_stars
     5 - star_avg.to_i

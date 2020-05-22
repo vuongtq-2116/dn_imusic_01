@@ -1,6 +1,14 @@
 class SongsController < ApplicationController
   def index
-    @songs = Song.includes(:category).sort_by_created_at.paginate page: params[:page]
+    if params[:search]
+      @songs = Song.search(params[:search]).paginate page: params[:page]
+    else
+      @songs = Song.includes(:category).sort_by_created_at.paginate page: params[:page]
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show

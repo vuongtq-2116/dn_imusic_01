@@ -12,3 +12,8 @@ $(document).on("click", "#ele", function(){
   select_child.setAttribute("name", name);
   document.getElementById("wrapper").appendChild(clone)
 });
+
+$(document).keyup("#search_songs input", function(){
+  $.get($("#search_songs").attr("action"), $("#search_songs").serialize(), null, "script");
+  return false;
+});
