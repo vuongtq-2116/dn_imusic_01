@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :albums, only: %i(index show)
     resources :songs, only: %i(index show) do
       resources :comments
+      resources :favorite_songs, only: %i(create destroy)
     end
+    resources :favorite_songs, only: :index
   end
 end

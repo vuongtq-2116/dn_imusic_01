@@ -1,5 +1,5 @@
 <div class="container">
-  <h2><%= @song.name %></h2>
+  <h2><%= @song.name %><%= render "favorite_songs/like_form" if logged_in? %></h2>
   <table class="table table-hover">
     <tbody>
       <tr>
