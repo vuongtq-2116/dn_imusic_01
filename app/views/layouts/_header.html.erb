@@ -6,17 +6,26 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav navbar-right">
       <% if logged_in? %>
+          <li class="nav-item">
+            <%= link_to current_user.name, "#" %>
+          </li>
+        <% if current_user.admin? %>
+          <li class="nav-item">
+            <%= link_to t(".category"), admin_categories_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t(".album"), admin_albums_path %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to t(".category"), categories_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t(".album"), albums_path %>
+          </li>
+        <%end%>
         <li class="nav-item">
-          <%= link_to current_user.name, "#" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to t(".category"), categories_path %>
-        </li>
-        <li class="nav-item">
-          <%= link_to t(".profile"), "#" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to t(".logout"), logout_path, method: :delete %>
+            <%= link_to t(".logout"), logout_path, method: :delete %>
         </li>
       <% else %>
         <li><%= link_to t(".login"), login_path %></li>
