@@ -89,7 +89,7 @@ class Admin::AlbumsController < Admin::BaseController
 
   # 0: not duplicate; 1: duplicate; 2: cannot delete all song
   def check_params_duplicate
-    return false if params.nil?
+    return false if params.nil? or params[:album][:album_songs_attributes].blank?
     array_in = []
     params[:album][:album_songs_attributes].values.map do |v|
        if v.size == 1
