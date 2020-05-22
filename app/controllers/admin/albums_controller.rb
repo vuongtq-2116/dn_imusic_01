@@ -18,7 +18,7 @@ class Admin::AlbumsController < Admin::BaseController
 
   def create
     @album = Album.new album_params
-    case check_params_duplicate
+    case check_params_duplicate params
     when 1
       flash[:danger] = t "admin.albums.create.dup"
       render :new
@@ -41,7 +41,7 @@ class Admin::AlbumsController < Admin::BaseController
 
   def update
     Album.transaction do
-      case check_params_duplicate
+      case check_params_duplicate params
       when 1
         flash[:danger] = t "admin.albums.create.dup"
         redirect_to edit_admin_album_path @album
@@ -88,8 +88,8 @@ class Admin::AlbumsController < Admin::BaseController
   end
 
   # 0: not duplicate; 1: duplicate; 2: cannot delete all song
-  def check_params_duplicate
-    return false if params.nil? or params[:album][:album_songs_attributes].blank?
+  def check_params_duplicate params
+    return 0 if params.nil? or params[:album][:album_songs_attributes].blank?
     array_in = []
     params[:album][:album_songs_attributes].values.map do |v|
        if v.size == 1
