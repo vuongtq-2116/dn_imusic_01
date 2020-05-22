@@ -1,4 +1,4 @@
-<%= form_for [@song, @song.comments.build], remote: true do |f| %>
+<%= form_for [@song, @comment || @song.comments.build], remote: true do |f| %>
   <%= f.hidden_field :song_id, value: @song.id %>
   <div class = "form-group">
     <%= f.text_field :content, class: "form-control" %>

@@ -182,6 +182,16 @@ en:
     comments:
       add_cmt: "Add a Comment"
       cmts: "Comments"
+      not_found_cmt: "Not found comment"
+      update:
+        success: "Comment updated"
+        fail: "Cannot update comment"
+      destroy:
+        success: "Comment deleted"
+        fail: "Cannot delete comment"
+      create:
+        success: "Commented"
+        fail: "Cannot create comment"
   time:
     formats:
       long: "%H:%M:%S %d-%m-%Y"
