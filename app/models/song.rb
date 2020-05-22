@@ -22,4 +22,11 @@ class Song < ApplicationRecord
   def blank_stars
     5 - star_avg.to_i
   end
+
+  def favorite? user
+    fs = FavoriteSong.find_by user_id: user.id, song_id: id
+    return true if fs
+
+    false
+  end
 end

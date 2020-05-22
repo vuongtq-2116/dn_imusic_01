@@ -47,6 +47,7 @@ en:
       edit_btn: "Edit"
       song: "Songs"
       users: "Users"
+      my_song: "My Song"
     application:
       vietnamese: "Vi"
       english: "En"
@@ -192,6 +193,15 @@ en:
       create:
         success: "Commented"
         fail: "Cannot create comment"
+    favorite_songs:
+      not_found_fs: "Not found data favorite"
+      create:
+        fail: "Cannot like this song"
+      destroy:
+        fail: "Cannot dislike this song"
+  song_mailer:
+    content: "Let's enjoy! Thanks."
+    subject: "Imusic has a new song"
   time:
     formats:
       long: "%H:%M:%S %d-%m-%Y"

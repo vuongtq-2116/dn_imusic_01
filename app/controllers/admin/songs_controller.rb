@@ -20,6 +20,7 @@ class Admin::SongsController < Admin::BaseController
   def create
     @song = current_user.songs.new song_params
     if @song.save
+      SongMailer.notify_new_song(@song).deliver_now
       flash[:success] = t ".success"
       redirect_to admin_song_path @song
     else
