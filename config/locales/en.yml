@@ -131,9 +131,12 @@ en:
       update:
         success: "Album was successfully updated."
         fail: "Cannot update album"
+        fail_cannot_remove: "Cannot remove all songs in album"
       destroy:
         success: "Album was successfully destroyed."
         fail: "Album cannot delete"
+      edit:
+        content: "Edit album"
       not_found_album: "Not found album"
   time:
     formats:

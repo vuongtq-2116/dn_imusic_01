@@ -12,7 +12,3 @@ $(document).on("click", "#ele", function(){
   select_child.setAttribute("name", name);
   document.getElementById("wrapper").appendChild(clone)
 });
-
-$(document).on("click", ".del-field", function(){
-  $(this).parents(".field_song").remove();
-});
