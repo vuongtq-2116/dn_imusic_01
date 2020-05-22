@@ -1,0 +1,7 @@
+<h2><%= @song.name %></h2>
+<% @lyric_requests.each do |lr| %>
+  <ul>
+    <%= render "form_approve", lr: lr %>
+  </ul>
+  <hr>
+<% end %>

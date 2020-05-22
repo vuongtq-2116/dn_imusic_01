@@ -1,5 +1,10 @@
 class FavoriteSongsController < ApplicationController
+  before_action :logged_in_user
   before_action :load_song, :load_favorite_song, only: %i(create destroy)
+
+  def index
+    @favorite_songs = current_user.favorite_songs.includes(:song)
+  end
 
   def create
     @favorite_song = current_user.favorite_songs.build fs_params
@@ -17,6 +22,7 @@ class FavoriteSongsController < ApplicationController
   end
 
   private
+
   def fs_params
     params.require(:favorite_song).permit FavoriteSong::ATTR_PARAMS
   end
@@ -34,6 +40,6 @@ class FavoriteSongsController < ApplicationController
     return if @song
 
     flash[:danger] = t "admin.songs.not_found_song"
-    redirect_to admin_songs_path
+    redirect_to songs_path
   end
 end

@@ -1,0 +1,7 @@
+<i class="lyric_content">
+  <% if load_lyric @song %>
+    <%= (load_lyric @song).lyric_detail.html_safe %>
+  <% else %>
+    <%= t "lyrics.no_lyric" %>
+  <% end %>
+</i>

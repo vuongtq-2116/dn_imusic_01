@@ -1,0 +1,6 @@
+$('#form_lyric').replaceWith('<%= j render "lyric_requests/form", song: @song, lyric_request: @lyric_request %>');
+<% if flash.now[:success] %>
+  $('#message_cmt').html('<%= j flash.now[:success] %>').addClass('alert alert-success')
+<% else %>
+  $('#message_cmt').html('<%= j flash.now[:danger] %>').addClass('alert alert-danger')
+<% end %>

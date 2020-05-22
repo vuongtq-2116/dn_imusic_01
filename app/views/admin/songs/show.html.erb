@@ -1,5 +1,6 @@
 <div class="container">
-  <h2><%= @song.name %> | <%= render "favorite_songs/like_form" if logged_in? %></h2>
+  <h2><%= @song.name %><%= render "favorite_songs/like_form" if logged_in? %></h2>
+  <%= render "ratings/rating_form", song: @song, rating: @rating %>
   <table class="table table-hover">
     <tbody>
       <tr>
@@ -27,13 +28,8 @@
           </div>
           <div class="col">
             <th><%= t "admin.songs.header.rate" %></th>
-            <td>
-              <% @song.star_avg.to_i.times do %>
-                <span class="fas fa-star"></span>
-              <% end %>
-              <% @song.blank_stars.to_i.times do %>
-                <span class="far fa-star"></span>
-              <% end %>
+            <td class = "rating_avg">
+              <%= render "ratings/rating_avg", song: @song %>
             </td>
           </div>
         </div>
@@ -97,5 +93,13 @@
   <h2><%= t "admin.comments.cmts" %></h2>
   <div class="new-comment-container">
     <%= render partial: "comments/comment", collection: @song.comments.sort_by_create_at %>
+  </div>
+  <hr>
+  <h2><%= link_to t("layouts.header.lyrics"), admin_song_get_approve_path(@song) %></h2>
+  <div class="lyric">
+    <%= render template: "lyric_requests/show", lyric_request: @lyric_request %>
+  </div>
+  <div class="lyric_re">
+    <%= render "lyric_requests/form", song: @song, lyric_request: @lyric_request %>
   </div>
 </div>

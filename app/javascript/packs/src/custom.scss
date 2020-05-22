@@ -1,5 +1,6 @@
 $white: #fff;
-
+$starColour: #16a085;
+$starHoverColour: #1abc9c;
 /* header */
 #logo {
   float: left;
@@ -17,4 +18,8 @@ $white: #fff;
 }
 nav{
   margin-bottom: 30px;
+}
+
+.lyric_content{
+  color: cadetblue;
 }

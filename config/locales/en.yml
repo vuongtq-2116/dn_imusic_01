@@ -47,6 +47,12 @@ en:
       edit_btn: "Edit"
       song: "Songs"
       users: "Users"
+      my_song: "My Song"
+      favorite: "Favorite"
+      lyrics: "Lyrics"
+      artist: "Artist"
+      album: "Album"
+      rate: "Rating"
     application:
       vietnamese: "Vi"
       english: "En"
@@ -198,6 +204,21 @@ en:
         fail: "Cannot like this song"
       destroy:
         fail: "Cannot dislike this song"
+  song_mailer:
+    content: "Let's enjoy! Thanks."
+    subject: "Imusic has a new song"
+  ratings:
+    fail: "Cannot rate this song"
+    not_found_rate: "Not found rating"
+  lyrics:
+    create:
+      fail: "Cannot request lyric for this song"
+      success: "Already requested lyric. Please wait admin censor!"
+    update:
+      fail: "Cannot update lyric for this song"
+      success: "Already update lyric. Please wait admin censor!"
+    not_found_lyric: "Not found lyric"
+    no_lyric: "No one has contributed the lyrics yet"
   time:
     formats:
       long: "%H:%M:%S %d-%m-%Y"

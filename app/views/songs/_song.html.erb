@@ -1,6 +1,19 @@
 <tr>
   <td><%= link_to song.name, song %></td>
   <td><%= song.category.name %></td>
-  <td><%= l song.created_at, format: :long %></td>
-  <td><%= l song.updated_at, format: :long %></td>
+  <td><%= song.artist %></td>
+  <td>
+    <div class="dropdown">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+        Album
+      </button>
+      <div class="dropdown-menu">
+        <% song.album_songs.each do |s| %>
+          <a class="dropdown-item" href="#"><%= s.album.name %></a>
+          <br>
+        <% end %>
+      </div>
+    </div>
+  </td>
+  <td><%= render "ratings/rating_avg", song: song %></td>
 </tr>

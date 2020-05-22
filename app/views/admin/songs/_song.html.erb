@@ -1,8 +1,21 @@
 <tr>
   <td><%= link_to song.name, admin_song_path(song) %></td>
   <td><%= song.category.name %></td>
-  <td><%= l song.created_at, format: :long %></td>
-  <td><%= l song.updated_at, format: :long %></td>
+  <td><%= song.artist %></td>
+  <td>
+    <div class="dropdown">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+        Album
+      </button>
+      <div class="dropdown-menu">
+        <% song.album_songs.each do |s| %>
+          <a class="dropdown-item" href="#"><%= s.album.name %></a>
+          <br>
+        <% end %>
+      </div>
+    </div>
+  </td>
+  <td><%= render "ratings/rating_avg", song: song %></td>
   <% if current_user.admin? %>
     <td><%= link_to t("layouts.header.edit_btn"), edit_admin_song_path(song) %></td>
     <td><%= link_to t("layouts.header.delete"), admin_song_path(song), method: :delete,
