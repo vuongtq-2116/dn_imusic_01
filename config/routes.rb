@@ -6,9 +6,10 @@ Rails.application.routes.draw do
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
-    resources :users
+    resources :users, only: %i(new create show)
     resources :account_activations, only: :edit
     namespace :admin do
+      resources :users
       resources :categories
       resources :albums
       resources :songs

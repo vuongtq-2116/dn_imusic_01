@@ -1,19 +1,11 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, except: %i(new create)
-  before_action :load_user, except: %i(index new create)
-  before_action :correct_user, only: %i(edit update)
-
-  def index
-    @users = User.active.paginate page: params[:page]
-  end
+  before_action :logged_in_user, :load_user, :correct_user, only: :show
 
   def new
     @user = User.new
   end
 
   def show; end
-
-  def edit; end
 
   def create
     @user = User.new user_params
@@ -22,24 +14,6 @@ class UsersController < ApplicationController
     else
       render :new
     end
-  end
-
-  def update
-    if @user.update user_params
-      flash[:success] = t ".update_success"
-      redirect_to @user
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    if @user.update_attribute :deleted_at, Time.now
-      flash[:success] = t ".deleted"
-    else
-      flash[:danger] = t ".cannot_deleted"
-    end
-    redirect_to users_path
   end
 
   private
