@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       resources :songs, only: %i(index show)
     end
     resources :categories, only: :index
-    resources :albums, only: :index
+    resources :albums, only: %i(index show)
     resources :songs, only: %i(index show)
   end
 end
