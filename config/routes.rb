@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'ratings/create'
+  get 'ratings/update'
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
 
@@ -18,6 +20,9 @@ Rails.application.routes.draw do
     resources :albums, only: %i(index show)
     resources :songs, only: %i(index show) do
       resources :comments
+      resources :favorite_songs, only: %i(create destroy)
+      resources :ratings
     end
+    resources :favorite_songs, only: :index
   end
 end

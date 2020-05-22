@@ -1,0 +1,7 @@
+<div id="like_form">
+  <% if @song.favorite? current_user %>
+    <%= render "favorite_songs/dislike", song: @song, favorite_song: @favorite_song %>
+  <% else %>
+    <%= render "favorite_songs/like", song: @song, favorite_song: @favorite_song %>
+  <% end %>
+</div>

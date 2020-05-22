@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to favorite_song.song.name, song_path(favorite_song.song) %></td>
+  <td><%= favorite_song.song.category.name %></td>
+  <td><%= l favorite_song.song.created_at, format: :long %></td>
+</tr>

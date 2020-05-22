@@ -13,6 +13,7 @@ $(document).on("click", "#ele", function(){
   document.getElementById("wrapper").appendChild(clone)
 });
 
+
 $(document).keyup("#search_songs input", function(){
   $.get($("#search_songs").attr("action"), $("#search_songs").serialize(), null, "script");
   return false;
