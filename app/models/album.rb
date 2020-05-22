@@ -5,4 +5,13 @@ class Album < ApplicationRecord
 
   scope :sort_by_name, -> {order name: :asc}
   accepts_nested_attributes_for :album_songs, allow_destroy: true
+
+  validates :name, presence: true,
+                  length: { maximum: Settings.albums.name_length_max }
+
+  before_save :upcase_name
+
+  def upcase_name
+    name.upcase!
+  end
 end
