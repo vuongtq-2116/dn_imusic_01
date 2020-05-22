@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   include CommentsHelper
-
+  before_action :logged_in_user
   before_action :load_song, except: %i(new index show)
   before_action :load_comment, only: %i(edit update destroy)
 
