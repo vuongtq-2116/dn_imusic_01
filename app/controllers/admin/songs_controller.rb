@@ -23,7 +23,7 @@ class Admin::SongsController < Admin::BaseController
     @song = current_user.songs.new song_params
     if @song.save
       flash[:success] = t ".success"
-      redirect_to admin_songs_path
+      redirect_to admin_song_path @song
     else
       flash.now[:danger] = t ".fail"
       render :new

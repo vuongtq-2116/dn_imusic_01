@@ -3,10 +3,10 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   attr_accessor :activation_token
   has_many :songs, dependent: :destroy
-  has_many :songs, through: :ratings, dependent: :destroy
-  has_many :songs, through: :favorite_songs, dependent: :destroy
-  has_many :songs, through: :lyric_requests, dependent: :destroy
-  has_many :songs, through: :comments, dependent: :destroy
+  has_many :ratings, dependent: :destroy
+  has_many :favorite_songs, dependent: :destroy
+  has_many :lyric_requests, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   enum role: {user: 0, admin:1}
   before_create :create_activation_digest
