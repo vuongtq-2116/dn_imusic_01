@@ -1,0 +1,8 @@
+<div>
+  <b><%= comment.user.name %></b> | <%= distance_of_time_in_words(Time.now.to_i, comment.created_at.to_i)%>
+  <br>
+  <i><%= comment.content %></i>
+  <br>
+  <%= link_to t("layouts.header.delete"), [comment.song, comment], method: :delete, data: { confirm: t("layouts.header.sure") } %>
+</div>
+<br>
