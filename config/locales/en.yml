@@ -170,6 +170,14 @@ en:
       create:
         success: "Song was successfully created."
         fail: "Cannot create song"
+      update:
+        success: "Song was successfully updated."
+        fail: "Cannot update song"
+      destroy:
+        deleted: "Song was successfully destroyed."
+        cannot_deleted: "Song cannot delete"
+      edit:
+        content: "Edit a song"
   time:
     formats:
       long: "%H:%M:%S %d-%m-%Y"

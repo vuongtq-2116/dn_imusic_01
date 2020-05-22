@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :categories
       resources :albums
-      resources :songs, only: %i(index show new create)
+      resources :songs
     end
     resources :categories, only: :index
     resources :albums, only: %i(index show)
