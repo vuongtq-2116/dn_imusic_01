@@ -8,7 +8,10 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
-import "bootstrap"
+require("custom")
+
+import {} from "custom"
+import "bootstrap";
 import "./src/application.scss";
 import "./src/custom.scss";
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -17,3 +20,6 @@ import "./src/custom.scss";
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+import $ from "jquery";
+import "select2/dist/css/select2.css";
+import "select2";

@@ -1,0 +1,19 @@
+<div class="container">
+  <h2><%= t "layouts.header.album" %></h2>
+  <% if current_user.admin? %>
+    <%= link_to t("layouts.header.new_btn"), new_admin_album_path, class: "btn btn-info" %>
+  <% end %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th><%= t "layouts.header.name" %></th>
+        <th><%= t "layouts.header.created_h" %></th>
+        <th><%= t "layouts.header.updated_h" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= will_paginate @albums %>
+      <%= render(@albums) || t("albums.no_album") %>
+    </tbody>
+  </table>
+</div>

@@ -125,6 +125,7 @@ en:
       create:
         success: "Album was successfully created."
         fail: "Cannot create album"
+        dup: "Duplicate song"
       new:
         content: "Create new a album"
       update:
