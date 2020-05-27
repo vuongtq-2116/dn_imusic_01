@@ -44,6 +44,7 @@ en:
       create_btn: "Create"
       update_btn: "Update"
       new_btn: "New +"
+      song: "Songs"
     application:
       vietnamese: "Vi"
       english: "En"
@@ -138,6 +139,17 @@ en:
       edit:
         content: "Edit album"
       not_found_album: "Not found album"
+    songs:
+      no_song: "There are no any songs to display"
+      not_found_song: "Not found Song"
+      header:
+        cate: "Category"
+        artist: "Artist"
+        album: "Album"
+        rate: "Rating"
+        cr_at: "Created at"
+        desc: "Description"
+
   time:
     formats:
       long: "%H:%M:%S %d-%m-%Y"

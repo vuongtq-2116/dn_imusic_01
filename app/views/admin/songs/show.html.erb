@@ -1,0 +1,55 @@
+<div class="container">
+  <h2><%= @song.name %></h2>
+  <table class="table table-hover">
+    <tbody>
+      <tr>
+        <div class="row">
+          <div class="col">
+            <th><%= t "admin.songs.header.cate" %></th>
+            <td><%= @song.category.name %></td>
+          </div>
+          <div class="col">
+            <th><%= t "admin.songs.header.album" %></th>
+            <td>
+              <% @song.album_songs.each do |s| %>
+                <%= s.album.name %>
+                <br>
+              <% end %>
+            </td>
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="row">
+          <div class="col">
+            <th><%= t "admin.songs.header.artist" %></th>
+            <td><%= @song.artist %></td>
+          </div>
+          <div class="col">
+            <th><%= t "admin.songs.header.rate" %></th>
+            <td>
+              <% @song.star_avg.to_i.times do %>
+                <span class="fas fa-star"></span>
+              <% end %>
+              <% @song.blank_stars.to_i.times do %>
+                <span class="far fa-star"></span>
+              <% end %>
+            </td>
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="row">
+          <div class="col">
+            <th><%= t "admin.songs.header.cr_at" %></th>
+            <td><%= l @song.created_at, format: :long %></td>
+          </div>
+          <div class="col">
+            <th><%= t "admin.songs.header.desc" %></th>
+            <td><%= @song.description %></td>
+          </div>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>

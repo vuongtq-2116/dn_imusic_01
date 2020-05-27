@@ -11,8 +11,10 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :categories
       resources :albums
+      resources :songs, only: %i(index show)
     end
     resources :categories, only: :index
     resources :albums, only: :index
+    resources :songs, only: %i(index show)
   end
 end
