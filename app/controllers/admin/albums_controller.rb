@@ -30,6 +30,40 @@ class Admin::AlbumsController < Admin::BaseController
     end
   end
 
+  def update
+    Album.transaction do
+      case check_params_duplicate
+      when 1
+        flash[:danger] = t "admin.albums.create.dup"
+        redirect_to edit_admin_album_path @album
+        raise ActiveRecord::Rollback
+      when 2
+        flash[:danger] = t "admin.albums.update.fail_cannot_remove"
+        redirect_to edit_admin_album_path @album
+        raise ActiveRecord::Rollback
+      else
+      end
+
+      if @album.update album_params
+        flash[:success] = t ".success"
+        redirect_to admin_albums_path
+      else
+        flash.now[:danger] = t ".fail"
+        render :edit
+        raise ActiveRecord::Rollback
+      end
+    end
+  end
+
+  def destroy
+    if @album.destroy
+      flash[:success] = t ".success"
+    else
+      flash[:danger] = t ".fail"
+    end
+    redirect_to admin_albums_path
+  end
+
   private
 
   def album_params
@@ -44,12 +78,21 @@ class Admin::AlbumsController < Admin::BaseController
     redirect_to admin_albums_path
   end
 
+  # 0: not duplicate; 1: duplicate; 2: cannot delete all song
   def check_params_duplicate
+    return false if params.nil?
     array_in = []
-    params[:album][:album_songs_attributes].values.map{|value| array_in << value.values }
-    unless array_in.uniq.length == array_in.length
-      return true
+    params[:album][:album_songs_attributes].values.map do |v|
+       if v.size == 1
+        array_in << v.values[0]
+       else
+        array_in << v.values[0] if v.values[1] == "0"
+       end
     end
-    false
+    return 2 if array_in.blank?
+    unless array_in.uniq.length == array_in.length
+      return 1
+    end
+    0
   end
 end
