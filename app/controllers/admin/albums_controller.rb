@@ -12,7 +12,9 @@ class Admin::AlbumsController < Admin::BaseController
 
   def edit; end
 
-  def show; end
+  def show
+    @songs = @album.album_songs
+  end
 
   def create
     @album = Album.new album_params
