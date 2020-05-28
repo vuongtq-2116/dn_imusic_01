@@ -2,10 +2,10 @@ class Song < ApplicationRecord
   ATTR_PARAMS = %i(name description category_id user_id artist star_avg song_file)
   belongs_to :user
   belongs_to :category
-  has_many :users, through: :ratings, dependent: :destroy
-  has_many :users, through: :favorite_songs, dependent: :destroy
-  has_many :users, through: :lyric_requests, dependent: :destroy
-  has_many :users, through: :comments, dependent: :destroy
+  has_many :ratings, dependent: :destroy
+  has_many :favorite_songs, dependent: :destroy
+  has_many :lyric_requests, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :album_songs, dependent: :destroy
   has_many :albums, through: :album_songs
   has_one_attached :song_file
