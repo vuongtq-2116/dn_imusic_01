@@ -150,7 +150,26 @@ en:
         rate: "Rating"
         cr_at: "Created at"
         desc: "Description"
+        ctrl_btn: "Control Buttons"
+        duration: "Duration"
+        playing: "Playing"
       plhd_search: "Search by name, artist, category or album"
+      download_btn: "Download"
+      play_btn: "Play"
+      sound_info: "Sound Information"
+      src_file: "Source: "
+      stt_sound: "Status: Loading"
+      new:
+        content: "Create new a song"
+      show:
+        src: "Source: "
+        ready: "Status: Ready to play"
+        playing: "Status: Playing"
+        pause: "Status: Paused"
+        sec: " seconds"
+      create:
+        success: "Song was successfully created."
+        fail: "Cannot create song"
   time:
     formats:
       long: "%H:%M:%S %d-%m-%Y"

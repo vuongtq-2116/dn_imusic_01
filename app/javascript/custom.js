@@ -17,3 +17,41 @@ $(document).keyup("#search_songs input", function(){
   $.get($("#search_songs").attr("action"), $("#search_songs").serialize(), null, "script");
   return false;
 });
+
+$(document).on("turbolinks:load", function() {
+  var link = document.getElementById("link_down").href
+  var audioElement = document.createElement('audio');
+  var play = document.getElementById("play")
+  audioElement.setAttribute('src', link);
+
+  audioElement.addEventListener('ended', function() {
+      this.play();
+  }, false);
+
+  audioElement.addEventListener("canplay",function(){
+      $("#length").text(audioElement.duration + I18n.t("admin.songs.show.sec"));
+      $("#source").text(I18n.t("admin.songs.show.src") + audioElement.src);
+      $("#status").text(I18n.t("admin.songs.show.ready")).css("color","green");
+  });
+
+  audioElement.addEventListener("timeupdate",function(){
+      $("#currentTime").text(audioElement.currentTime);
+  });
+
+  $('#play').click(function() {
+      audioElement.play();
+      play.disabled = true;
+      $("#status").text(I18n.t("admin.songs.show.playing"));
+  });
+
+  $('#pause').click(function() {
+      audioElement.pause();
+      play.disabled = false;
+      $("#status").text(I18n.t("admin.songs.show.pause"));
+  });
+
+  $('#restart').click(function() {
+      audioElement.currentTime = 0;
+      play.disabled = false;
+  });
+});
