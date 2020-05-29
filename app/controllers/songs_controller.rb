@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   def index
-    @songs = Song.search(params[:search]).sort_by_created_at.paginate page: params[:page]
+    @songs = Song.search(params[:search]).active.sort_by_created_at.paginate page: params[:page]
     respond_to do |format|
       format.html
       format.js

@@ -3,4 +3,9 @@
   <td><%= song.category.name %></td>
   <td><%= l song.created_at, format: :long %></td>
   <td><%= l song.updated_at, format: :long %></td>
+  <% if current_user.admin? %>
+    <td><%= link_to t("layouts.header.edit_btn"), edit_admin_song_path(song) %></td>
+    <td><%= link_to t("layouts.header.delete"), admin_song_path(song), method: :delete,
+      data: { confirm: t("layouts.header.sure") } %></td>
+  <% end %>
 </tr>
