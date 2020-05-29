@@ -46,6 +46,7 @@ en:
       new_btn: "New +"
       edit_btn: "Edit"
       song: "Songs"
+      users: "Users"
     application:
       vietnamese: "Vi"
       english: "En"
