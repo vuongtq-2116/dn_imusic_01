@@ -1,8 +1,17 @@
-<div>
+<div id="comment_<%= comment.id %>">
   <b><%= comment.user.name %></b> | <%= distance_of_time_in_words(Time.now.to_i, comment.created_at.to_i)%>
   <br>
   <i><%= comment.content %></i>
   <br>
-  <%= link_to t("layouts.header.delete"), [comment.song, comment], method: :delete, data: { confirm: t("layouts.header.sure") } %>
+  <% if is_owner_cmt? comment %>
+    <%= link_to edit_song_comment_path(comment.song, comment), remote: true, class: "btn btn-primary" do %>
+      <%= t "layouts.header.edit_btn" %>
+      <i class="fas fa-edit"></i>
+    <% end %>
+    <%= link_to [comment.song, comment], method: :delete, data: { confirm: t("layouts.header.sure") }, remote: true, class: "btn btn-danger" do %>
+      <%= t "layouts.header.delete" %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+  <% end %>
+  <hr>
 </div>
-<br>
