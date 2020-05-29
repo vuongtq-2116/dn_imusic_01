@@ -1,0 +1,1 @@
+$('.new-comment-container').html('<%= j render partial: "comments/comment", collection: @song.comments.sort_by_create_at %>')

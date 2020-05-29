@@ -178,6 +178,9 @@ en:
         cannot_deleted: "Song cannot delete"
       edit:
         content: "Edit a song"
+    comments:
+      add_cmt: "Add a Comment"
+      cmts: "Comments"
   time:
     formats:
       long: "%H:%M:%S %d-%m-%Y"

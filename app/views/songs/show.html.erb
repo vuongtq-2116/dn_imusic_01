@@ -89,4 +89,12 @@
   <h2><%= t "admin.songs.sound_info" %></h2>
   <div id="source"><%= t "admin.songs.src_file" %></div>
   <div id="status" style="color:red;"><%= t "admin.songs.stt_sound" %></div>
+  <hr>
+    <h4><%= t "admin.comments.add_cmt" %></h4>
+    <%= render "comments/comment_form", comment: @comment %>
+  <hr>
+  <h2><%= t "admin.comments.cmts" %></h2>
+  <div class="new-comment-container">
+    <%= render partial: "comments/comment", collection: @song.comments.sort_by_create_at %>
+  </div>
 </div>
