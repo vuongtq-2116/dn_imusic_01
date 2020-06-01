@@ -13,6 +13,7 @@ $(document).on("click", "#ele", function(){
   document.getElementById("wrapper").appendChild(clone)
 });
 
+
 $(document).keyup("#search_songs input", function(){
   $.get($("#search_songs").attr("action"), $("#search_songs").serialize(), null, "script");
   return false;
@@ -29,13 +30,13 @@ $(document).on("turbolinks:load", function() {
   }, false);
 
   audioElement.addEventListener("canplay",function(){
-      $("#length").text(audioElement.duration + I18n.t("admin.songs.show.sec"));
+      $("#length").text(Math.round(audioElement.duration) + I18n.t("admin.songs.show.sec"));
       $("#source").text(I18n.t("admin.songs.show.src") + audioElement.src);
       $("#status").text(I18n.t("admin.songs.show.ready")).css("color","green");
   });
 
   audioElement.addEventListener("timeupdate",function(){
-      $("#currentTime").text(audioElement.currentTime);
+      $("#currentTime").text(Math.round(audioElement.currentTime));
   });
 
   $('#play').click(function() {

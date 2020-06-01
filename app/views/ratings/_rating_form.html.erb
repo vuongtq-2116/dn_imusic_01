@@ -1,0 +1,19 @@
+<div id="form_rating">
+  <%= form_for [@song, (current_user.ratings.find_by song_id: @song.id) || current_user.ratings.build], remote: true do |f| %>
+    <%= f.radio_button :star, 1.0, class: "rating" %>
+    <%= f.radio_button :star, 2.0, class: "rating" %>
+    <%= f.radio_button :star, 3.0, class: "rating" %>
+    <%= f.radio_button :star, 4.0, class: "rating" %>
+    <%= f.radio_button :star, 5.0, class: "rating" %>
+    <%= f.hidden_field :song_id, value: @song.id %>
+    <%= f.submit :submit, id: "submit_rating" %>
+  <% end %>
+</div>
+<script>
+    $(document).ready(function() {
+        $("#submit_rating").hide();
+        $(".rating").change(function(){
+            $("#submit_rating").click()
+        });
+    });
+</script>

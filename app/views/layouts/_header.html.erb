@@ -23,6 +23,9 @@
           <li class="nav-item">
             <%= link_to t(".users"), admin_users_path, class: "nav-link" %>
           </li>
+          <li class="nav-item">
+            <%= link_to t("layouts.header.lyrics"), admin_lyric_requests_path, class: "nav-link" %>
+          </li>
         <% else %>
           <li class="nav-item">
             <%= link_to t(".category"), categories_path, class: "nav-link" %>
@@ -33,7 +36,10 @@
           <li class="nav-item">
             <%= link_to t(".song"), songs_path, class: "nav-link" %>
           </li>
-        <%end%>
+        <% end %>
+        <li class="nav-item">
+          <%= link_to t(".favorite"), favorite_songs_path, class: "nav-link" %>
+        </li>
         <li class="nav-item">
             <%= link_to t(".logout"), logout_path, method: :delete, class: "nav-link" %>
         </li>

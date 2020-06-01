@@ -1,0 +1,18 @@
+<%= form_for lr, url: admin_song_lyric_request_path(@song, lr), method: :patch do |f| %>
+  <li>
+    Contribute by <b><%= lr.user.name %></b> --
+    <% case lr.status %>
+    <% when "unapprove" %>
+      <i class = "fas fa-times"></i>
+    <% when "approved" %>
+      <i class = "fas fa-check"></i>
+    <% when "approved_show" %>
+      <i class = "fas fa-check-double"></i>
+    <% else %>
+    <% end %>
+    <br>
+    <p style="border-style: solid; border-color: crimson"><%= lr.lyric_detail.html_safe %></p>
+  </li>
+  <%= f.select :status, options_for_select(LyricRequest.statuses, LyricRequest.statuses[lr.status]) %>
+  <%= f.submit %>
+<% end %>

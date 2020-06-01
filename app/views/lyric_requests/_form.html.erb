@@ -1,0 +1,9 @@
+<div id="form_lyric">
+  <%= form_for [@song, (current_user.lyric_requests.find_by song_id: @song.id) ||
+      current_user.lyric_requests.build], remote: true do |f| %>
+    <%= f.label :lyric_detail %>
+    <%= f.text_area :lyric_detail, class: "form-control" %>
+    <%= f.hidden_field :song_id, value: @song.id %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>

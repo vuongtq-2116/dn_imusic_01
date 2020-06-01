@@ -18,11 +18,18 @@ class Admin::AlbumsController < Admin::BaseController
 
   def create
     @album = Album.new album_params
-    if check_params_duplicate
-      flash.now[:danger] = t ".dup"
+    case check_params_duplicate
+    when 1
+      flash[:danger] = t "admin.albums.create.dup"
       render :new
       return
+    when 2
+      flash[:danger] = t "admin.albums.update.fail_cannot_remove"
+      render :new
+      return
+    else
     end
+
     if @album.save
       flash[:success] = t ".success"
       redirect_to admin_albums_path
