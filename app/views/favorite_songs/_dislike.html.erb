@@ -1,0 +1,5 @@
+<%= form_for [@song, load_fs(@song)], html: { method: :delete }, remote: true do |f| %>
+  <%= f.button :submit, class: "btn btn-secondary" do %>
+    <i class="fas fa-heart-broken"></i>
+  <% end %>
+<% end %>

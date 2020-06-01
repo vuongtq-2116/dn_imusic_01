@@ -192,6 +192,12 @@ en:
       create:
         success: "Commented"
         fail: "Cannot create comment"
+    favorite_songs:
+      not_found_fs: "Not found data favorite"
+      create:
+        fail: "Cannot like this song"
+      destroy:
+        fail: "Cannot dislike this song"
   time:
     formats:
       long: "%H:%M:%S %d-%m-%Y"
