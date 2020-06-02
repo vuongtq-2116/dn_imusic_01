@@ -8,10 +8,8 @@ Rails.application.routes.draw do
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
-    resources :users, only: %i(new create show)
     resources :account_activations, only: :edit
     namespace :admin do
-      resources :users
       resources :categories
       resources :albums
       resources :songs do
@@ -29,5 +27,6 @@ Rails.application.routes.draw do
       resources :lyric_requests, only: %i(create edit update)
     end
     resources :favorite_songs, only: :index
+    devise_for :users
   end
 end

@@ -1,6 +1,0 @@
-<li>
-  <%= link_to user.name, edit_admin_user_path(user) %> |
-  <%= user.email %> |
-  <%= link_to t("admin.users.destroy.deleted"), admin_user_path(user), method: :delete,
-    data: { confirm: t("users.user.sure") } %>
-</li>

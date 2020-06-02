@@ -1,7 +1,0 @@
-<h1><%= t "users.index.all_users" %></h1>
-
-<%= will_paginate @users %>
-
-<ul class = "users">
-  <%= render(@users) || t("users.index.no_users") %>
-</ul>
