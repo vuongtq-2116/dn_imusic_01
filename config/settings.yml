@@ -4,3 +4,5 @@ categories:
   per_page: 10
   name_length_min: 3
   name_length_max: 20
+albums:
+  name_length_max: 255
