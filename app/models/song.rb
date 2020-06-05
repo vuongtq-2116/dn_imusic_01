@@ -10,6 +10,8 @@ class Song < ApplicationRecord
   has_many :albums, through: :album_songs
   has_one_attached :song_file
 
+  validates :name, presence: true
+
   scope :active, ->{where deleted_at: nil}
   scope :sort_by_created_at, ->{order created_at: :desc}
   scope :search, ->(search){left_outer_joins(:category, album_songs: :album)
